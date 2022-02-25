@@ -41,7 +41,7 @@ class DatabaseSeeder extends Seeder
             'username' => 'admin',
             'password' => Hash::make('admin'),
             'email' => 'postmaster@localhost',
-            'level' => 100,
+            'level' => 1.0,
             'email_verified_at' => now(),
             'role_id' => 1,
             'rules' => $rules[0],

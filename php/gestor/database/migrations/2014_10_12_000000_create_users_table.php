@@ -20,7 +20,7 @@ return new class extends Migration
             $table->string('email', 150)->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
-            $table->integer('level')->unsigned()->default(0);
+            $table->float('level', 3, 2)->unsigned()->default(0.0);
             $table->json('rules');
             $table->foreignId('role_id')->constrained();
             $table->rememberToken();
