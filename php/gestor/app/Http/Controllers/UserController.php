@@ -15,7 +15,7 @@ class UserController extends Controller
      */
     public function index()
     {
-        $users = User::all();
+        $users = User::orderBy('id')->get();
         return response()->json($users, 200, [], JSON_NUMERIC_CHECK);
     }
 
@@ -71,7 +71,14 @@ class UserController extends Controller
      */
     public function update(UpdateUserRequest $request, User $user)
     {
-        //
+        $user->update([
+            'name' => $request->name,
+            'username' => $request->get('username'),
+            'email' => $request->email,
+            'role_id' => $request->role_id,
+        ]);
+
+        return response()->json($user, 200, [], JSON_NUMERIC_CHECK);
     }
 
     /**
